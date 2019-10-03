@@ -14,3 +14,6 @@ include_directories(${GLEW_INCLUDE_DIRS})
 add_executable(myapp main.cpp Renderer.cpp VertexBuffer.cpp IndexBuffer.cpp VertexArray.cpp Shader.cpp vendor/stb_image/stb_image.cpp Texture.cpp)
 
 target_link_libraries(myapp ${OPENGL_gl_LIBRARY} glfw ${GLEW_LIBRARIES})
+
+# Copy shader files if any changes are made.
+configure_file(${PROJECT_SOURCE_DIR}/res/shaders/basic.shader ${PROJECT_BINARY_DIR}/res/shaders/basic.shader COPYONLY)
